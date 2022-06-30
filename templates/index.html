@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pronalazak najniže cijene</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+	<header>
+		<div class="main">
+			<div class="logo">
+				<img src="static/images/logo.png">
+			</div>
+
+			<ul>
+				<li class="active"><a href="{{url_for('index')}}">Home</a></li>
+			</ul>
+		</div>
+		<div class="title">
+			<h1>Pronalazak najniže cijene</h1>
+		</div>
+		<div class="box1">
+			<h2>Pretraživanje proizvoda:</h2><br>
+			<form method="GET" action="/pretraga">
+				<input type="text" name="item" id="item" placeholder="Upišite naziv proizvoda...">
+				<input type="submit" name="" value="Pretraži">
+			</form>
+	</header>
+</body>
+
+</html>

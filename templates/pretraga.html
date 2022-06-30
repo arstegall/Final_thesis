@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pronalazak najniže cijene</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+	<header>
+		<div class="main">
+			<div class="logo">
+				<img src="static/images/logo.png">
+			</div>
+
+			 <ul>
+				<li><a href="{{url_for('index')}}">Home</a></li>
+				<li class="active"><a href="{{url_for('pretraga')}}">Pretraga</a></li>
+			</ul>
+		</div>
+		<div class="title">
+			<h1>Rezultati pretraživanja:</h1>
+		</div>
+		<div class="proizvodi">
+        {% for dict_item in svi_proizvodi %}
+        <p>
+           {% for key, value in dict_item.items() %}
+               {% if key == 'Link' %}
+                    {{key}}:<a href="{{value}}">Klik</a>
+                    {% set link = value %}
+                    <form method="POST" action="/obavijesti">
+                    <input type="hidden" id="link" name="link" value="{{link}}">
+                    <input type="submit" value="Obavijest">
+                   </form>
+                {% elif key == 'Cijena(HRK)' %}
+                    {{key}}:{{value}}
+                    {% set cijena = value %}
+                 {% else %}
+                    {{key}}:{{value}}
+               {% endif %} 
+           {% endfor %}
+        {% endfor %}
+        </p> 
+        </div>
+	</header>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Pronalazak najniže cijene</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+	<header>
+		<div class="main">
+			<div class="logo">
+				<img src="static/images/logo.png">
+			</div>
+
+			<ul>
+				<li class="active"><a href="{{url_for('index')}}">Home</a></li>
+			</ul>
+		</div>
+		<div class="title">
+			<h1>Pretplata na obavijesti</h1>
+		</div>
+		<div class="box2">
+			<h2>Pretplati se na obavijesti:</h2>
+			<form method="POST" action="/pretplata">
+                <input type="number" name="zeljenaCijena" id="zeljenaCijena" placeholder="Upišite željenu cijenu(HRK)..."><br>
+				<input type="email" name="email" id="email" placeholder="Upišite svoju e-mail adresu...">
+				<input type="hidden" id="link" name="link" value="{{url}}">
+				<input type="submit" name="" value="Spremi">
+		    </form>
+		</div>
+	</header>
+</body>
+
+</html>
